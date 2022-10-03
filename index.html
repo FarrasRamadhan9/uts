@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portofolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+</head>
+
+<body>
+    <!--sidebar-->
+    <input type="checkbox" id="check">
+    <div class="sidebar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#Portofolio">Portofolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <!--BAGIAN HEADER-->
+    <header>
+        <div class="bungkus">
+            <h1><a href="">Farras Ramadhan</a></h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skill</a></li>
+                <li><a href="#Portofolio">Portofolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!--Menu Mobile-->
+            <label for="check" class="mobile-menu"><i class="fa-solid fa-bars fa-2x"></i></label>
+        </div>
+    </header>
+
+    <!--Banner-->
+    <section class="banner">
+        <div class="bungkus">
+            <div class="animasi">
+                <canvas id="canvas" width="300" height="400"></canvas>
+
+
+                <script>
+                    var plane = new Image();
+                    plane.src = 'raidenz2.png';
+
+                    var i = 0,
+                        i_obs = 0,
+                        left = 0,
+                        right = 1;
+                    setInterval(showAnimation, 30);
+
+                    function showAnimation() {
+                        var canvas = document.getElementById('canvas');
+                        var ctx = canvas.getContext('2d');
+                        ctx.globalCompositeOperation = 'destination-over';
+                        ctx.clearRect(0, 0, 300, 300); // clear canvas
+
+                        ctx.save();
+                        //Plane Move
+                        //Move Right
+                        if ((i < 70) && (right == 1)) {
+                            i++;
+                            ctx.translate(i, 0);
+                        } else {
+                            right = 0;
+                            left = 1;
+                        }
+                        //Move Left
+                        if ((i > 0) && (left == 1)) {
+                            i--;
+                            ctx.translate(i, 0);
+                        } else {
+                            left = 0;
+                            right = 1;
+                        }
+                        ctx.drawImage(plane, 90, 255, plane.width / 2, plane.height / 2);
+                        //obstacles
+                        i_obs++;
+                        ctx.restore();
+                        ctx.save();
+                        ctx.fillStyle = 'rgba(255,255,255)';
+                        ctx.translate(0, i_obs);
+                        //draw obstacles
+                        ctx.fillRect(100, -70, 30, 8);
+                        ctx.fillRect(150, 0, 30, 8);
+                        ctx.fillRect(100, 70, 30, 8);
+                        ctx.fillRect(150, 140, 30, 8);
+                        ctx.fillRect(100, 210, 30, 8);
+                        //refresh
+                        if (i_obs == 423) {
+                            i_obs = 0;
+                        }
+
+                        //background
+                        ctx.restore();
+                        ctx.fillStyle = 'rgba(0,0,0)';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    }
+                </script>
+            </div>
+            <div class="banner-left">
+                <img src="foto.jfif">
+                <h2>Hai...<br> Saya adalah seorang <span class="efek-ngetik"></span></h2>
+                <P>Selamat Datang di Website Portofolio Saya!</P>
+            </div>
+        </div>
+    </section>
+
+    <!--bagian about-->
+    <section id="about">
+        <div class="bungkus">
+            <h3>Tentang Saya</h3>
+            <p>Hallo semuanya... </p>
+            <p>Saya adalah seorang Mahasiswa semester 3 aktif dengan Nim 41215525 Kelas Ti Kip P3 di STMIK IKMI CIREBON yang beralamat di Jl. Perjuangan No.10B, Karyamulya, Kesambi, Kota Cirebon, Jawa Barat 45131, Indonesia.</p>
+            <p>Saya memiliki Hobi membaca buku,beberapa buku yang telah saya baca diantaranya ada apa dengan kabut mekah,menggapai bintang,mukzizat memaafkan,selain membaca buku saya juga menghabiskan waktu luang untuk bermain game</p>
+            <p>Saya memiliki usaha mikro dibidang cemilan dengan nama Produk Suka Suki,Dengan Beraneka Macam produk seperti basreng,cireng isi,makaroni bantat,kerupuk seblak,mie kering dan kripca,jika dari pembaca ada yang ingin memesan silahkan hubungi
+                085353409118
+            </p>
+
+        </div>
+    </section>
+
+    <!--Bagian Skills-->
+    <section id="skills">
+        <div class="bungkus">
+            <h3>Skills</h3>
+            <h4>HTML</h4>
+            <div class="bar">
+                <span class="nilai html">100%</span>
+            </div>
+
+            <h4>CSS</h4>
+            <div class="bar">
+                <span class="nilai css">80%</span>
+            </div>
+
+            <h4>Javascript</h4>
+            <div class="bar">
+                <span class="nilai js">70%</span>
+            </div>
+
+            <h4>DATA MANAGEMENT STAFF</h4>
+            <div class="bar">
+                <span class="nilai dms">85%</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!--bagian portofolio-->
+    <section id="Portofolio">
+        <div class="bungkus">
+            <h3>Portofolio</h3>
+            <div class="col-4">
+                <a href="">
+                    <img src="dms.jfif" alt="">
+                    <span>Portofolio1</span>
+                </a>
+            </div>
+
+            <div class="col-4">
+                <a href="">
+                    <img src="1000 startup.jfif" alt="">
+                    <span>Portofolio2</span>
+                </a>
+            </div>
+
+            <div class="col-4">
+                <a href="">
+                    <img src="bootcamp alpro.jfif" alt="">
+                    <span>Portofolio3</span>
+                </a>
+            </div>
+
+            <div class="col-4">
+                <a href="">
+                    <img src="web-6585.jfif" alt="">
+                    <span>Portofolio4</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!--Bagian contact-->
+    <section id="contact">
+        <div class="bungkus">
+            <h3>Contact</h3>
+            <div class="col-3">
+                <h4>Alamat</h4>
+                <p>Tambelang,Karangsembung,Cirebon</p>
+            </div>
+            <div class="col-3">
+                <h4>Email</h4>
+                <p>farrasramadhan07@gmail.com</p>
+            </div>
+            <div class="col-3">
+                <h4>Telp</h4>
+                <p>+6285353409118</p>
+            </div>
+        </div>
+    </section>
+
+    <!--bagian footer-->
+    <footer>
+        <div class="bungkus">
+            <small>Copyright &copy;2020 - Farras Ramadhan.</small>
+        </div>
+    </footer>
+    <script src="txtElement.js"></script>
+</body>
+
+</html>
